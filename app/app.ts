@@ -6,6 +6,13 @@ purpose of the file is to pass control to the app’s first module.
 
 import { Application } from '@nativescript/core'
 
+const callback = (evt) => console.log(evt.eventName);
+Application.android.on('activityCreated', callback);
+Application.android.on('activityDestroyed', callback);
+Application.android.on('saveActivityState', callback);
+Application.android.on('activityStopped', callback);
+Application.android.on('activityStarted', callback);
+
 Application.run({ moduleName: 'app-root' })
 
 /*
